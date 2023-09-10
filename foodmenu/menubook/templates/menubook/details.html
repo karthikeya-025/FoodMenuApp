@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="card mx-auto my-5 bg-dark text-white" style="width: 18rem;">
+    <img src="{{ object.item_image  }}" class="card-img-top" alt="...">
+    <div class="card-body center">
+      <h5 class="card-title">{{ object.item_name }}</h5>
+      <p class="card-text">{{ object.item_desc }}.</p>
+      <h5 class="card-text">{{ object.price }}$</h5>
+      <a href="{% url 'menubook:update-item' object.id %}" class="btn btn-primary my-1">Edit</a>
+      <a href="{% url 'menubook:delete-item' object.id %}" class="btn btn-secondary my-1">Delete</a>
+      <a href="{% url 'menubook:index' %}" class="btn btn-primary">Back to Homepage</a>
+    </div>
+  </div>
+{% endblock body %}
+
+
+

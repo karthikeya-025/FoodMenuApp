@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+
+<body>
+    {% block body %}
+    <H1>Here's the list of items</H1>
+    {%for item in item_list %}
+    <div class="row">
+        <div class="col-md-2 offset-md-1">
+            <img class="card" style="width:100%;height:100%" src="{{ item.item_image }}"/>
+        </div>
+        <div class="col-md-4 offset-md-2">
+            <h3>{{ item.item_name }}</h3>
+            <h5>{{ item.price }}$</h5>
+        </div>
+        <div class="col-md-2">
+            <a href="{% url 'menubook:details' item.id %}" class="btn btn-success">Details</a>
+        </div>
+    
+
+     {% comment %} <a href={% url 'menubook:details' item.id %} class="list-group-item list-group-item-action list-group-item-primary px-4">
+        <h2 class="">{{ item.item_name }}</h2>
+     </a> {% endcomment %}
+    </div>
+    {%endfor%}
+    {% endblock body %}
+</body>
+</html>
